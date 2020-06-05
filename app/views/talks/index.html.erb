@@ -1,0 +1,43 @@
+
+<% if @talks.any? %>
+  <ul class="list-unstyled">
+    <% @talks.each do |talk| %>
+      <li class="media">
+        <!--<img class="mr-2 rounded" src="<% %>" alt="">-->
+        <div class="media-body">
+          <div>
+            <%= talk.question %>
+          </div>
+          <div>
+            <%= link_to '編集', edit_talk_path(talk), class: 'btn btn-success btn-sm' %>
+            <%= link_to '削除', talk,method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>            
+          </div>
+          <div>
+            <% if talk.answer %>
+            <%= talk.answer %>
+            <% else %>
+            <%= link_to '質問回答', "/talks/#{talk.id}/new", class: 'btn btn-primary btn-sm' %>
+            <% end %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <%= paginate @talks %>
+    
+<% end %>
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+
+    <%= form_with(model: @talk, local: true) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>      
+      <div class="form-group">
+        <%= f.label :question, '質問' %>
+        <%= f.text_area :question, class: 'form-control' %>
+      </div>
+
+
+      <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  </div>
+</div>
