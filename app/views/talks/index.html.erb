@@ -2,25 +2,28 @@
 <% if @talks.any? %>
   <ul class="list-unstyled">
     <% @talks.each do |talk| %>
-      <li class="media">
-        <!--<img class="mr-2 rounded" src="<% %>" alt="">-->
-        <div class="media-body">
+      
+      <div id="chat-frame">
+      <p class="chat-talk">
+        <span class="talk-icon">
+          <img src="/image4.png" alt="tartgeticon" width="50" height="50"/>
+        </span>
+        <span class="talk-content"><%=link_to talk.question, talk%></span>
           <div>
-            <%= talk.question %>
-          </div>
-          <div>
-            <%= link_to '編集', edit_talk_path(talk), class: 'btn btn-success btn-sm' %>
-            <%= link_to '削除', talk,method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>            
-          </div>
-          <div>
-            <% if talk.answer %>
-            <%= talk.answer %>
+          <% if talk.answer %>
+          <p class="chat-talk mytalk">
+          <span class="talk-icon">
+            <img src="/image3.jpeg" alt="myicon" width="50" height="50"/>
+          </span>
+          <span class="talk-content"><%=talk.answer%></span>
+          </p>
             <% else %>
             <%= link_to '質問回答', "/talks/#{talk.id}/new", class: 'btn btn-primary btn-sm' %>
             <% end %>
           </div>
-        </div>
-      </li>
+      </p>
+      
+      </div>
     <% end %>
   </ul>
   <%= paginate @talks %>

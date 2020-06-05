@@ -1,6 +1,92 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.center {
-    background-image: url("/images/logo.png");
+.top {
+    // background-color:red;
+    background-image: url("/image2.jpeg"); 
+    background-size: cover;
+    height:1000px;
+    opacity: 0.8;
+}
+
+// .h1{
+//     font-weight: bold;
+//     font-size:100px;
+// }
+
+.profile{
+    background-image: url("/image5.jpeg"); 
+    background-size: cover;
+    background-position:center;
+    height:1800px;
+    opacity: 0.8;
+}
+
+
+.card-body {
+    text-align:center;
+    padding-bottom:170px;
+}
+
+.hidden_box {
+    margin: 2em 0;/*前後の余白*/
+    padding: 0;
+}
+
+/*ボタン装飾*/
+.hidden_box label {
+    padding: 15px;
+    font-weight: bold;
+    border: solid 2px black;
+    cursor :pointer;
+    text-align:center;
+    background-color:gray;
+    margin-top: 1250px;
+}
+
+/*ボタンホバー時*/
+.hidden_box label:hover {
+    background: #efefef;
+}
+
+/*チェックは見えなくする*/
+.hidden_box input {
+    display: none;
+}
+
+/*中身を非表示にしておく*/
+.hidden_box .hidden_show {
+    
+    transition: 0.8s;
+}
+
+// .hidden{
+//     height: 0;
+//     padding: 0;
+//     overflow: hidden;
+//     opacity: 0;
+//     transition: 0.8s;
+// }
+
+/*クリックで中身表示*/
+.hidden_box input:checked ~ .hidden_show {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+    
+}
+
+
+.profile input:checked ~.hidden{
+    padding: 10px 0;
+    height: auto;
+    opacity: 1;
+}
+
+.hidden{
+    text-align: center;
+    color:white;
+    font-size:100px;
+    mergin-top: 50px;
 }

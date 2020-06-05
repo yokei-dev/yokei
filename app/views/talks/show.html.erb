@@ -1,2 +1,13 @@
-<h1>Talks#show</h1>
-<p>Find me in app/views/talks/show.html.erb</p>
+<div class="card mt-4">
+    <div class="card-header">
+        代慶　真
+    </div>
+    <div class="card-body">
+       <%= @talk.question %>
+    </div>
+</div>
+
+<div>
+    <%= link_to '編集', edit_talk_path(@talk), class: 'btn btn-success btn-sm' %>
+    <%= link_to '削除', @talk,method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>            
+ </div>
